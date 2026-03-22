@@ -3,11 +3,6 @@ services:
     name: ecospot
     env: docker
     plan: free
-
-  - type: web
-    name: ecospot
-    env: docker
-    plan: free
     envVars:
       - key: APP_KEY
         value: base64:u+iRsGCY//fQJhXxmWBye9HbzF467BLzuhkfMGM3Cjw=
