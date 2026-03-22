@@ -1,39 +1,20 @@
 console.log("script cargado");
-window.onload = function () {
 
-    const btnActualizaciones = document.getElementById("btnActualizaciones");
-    if (btnActualizaciones) {
-        btnActualizaciones.addEventListener("click", function() {
-            window.location.href = rutas.actualizaciones;
-        });
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const botones = [
+        { id: "btnActualizaciones", ruta: rutas.actualizaciones },
+        { id: "btnPreguntas", ruta: rutas.preguntas },
+        { id: "btnReportar", ruta: rutas.reportes },
+        { id: "btnExplorar", ruta: rutas.centros },
+        { id: "btnInformacion", ruta: rutas.info }
+    ];
 
-    const btnPreguntas = document.getElementById("btnPreguntas");
-    if (btnPreguntas) {
-        btnPreguntas.addEventListener("click", function() {
-            window.location.href = rutas.preguntas;
-        });
-    }
-
-    const btnReportar = document.getElementById("btnReportar");
-    if (btnReportar) {
-        btnReportar.addEventListener("click", function() {
-            window.location.href = rutas.reportes;
-        });
-    }
-
-    const btnExplorar = document.getElementById("btnExplorar");
-    if (btnExplorar) {
-        btnExplorar.addEventListener("click", function () {
-            window.location.href = rutas.centros;
-        });
-    }
-
-    const btnInformacion = document.getElementById("btnInformacion");
-    if (btnInformacion) {
-        btnInformacion.addEventListener("click", function () {
-            window.location.href = rutas.info;
-        });
-    }
-
-};
+    botones.forEach(boton => {
+        const el = document.getElementById(boton.id);
+        if (el) {
+            el.addEventListener("click", () => {
+                window.location.href = boton.ruta;
+            });
+        }
+    });
+});
