@@ -138,11 +138,11 @@ conecta el archivo HMTL-->
         const rutas = {
             actualizaciones: "{{ url('/actualizaciones') }}",
             preguntas: "{{ url('/preguntas') }}",
-            reportes: "{{ url('reportes') }}",
+            reportes: "{{ url('/reportes') }}",
             centros: "{{ url('/centros') }}",
             info: "{{ url('/sobreNosotros') }}"
         };
     </script>
 
-    <script src="{{ asset('script1.js') }}"></script>
+    <script src="{{ secure_asset('script1.js') }}"></script>
 </body>    
