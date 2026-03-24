@@ -146,6 +146,7 @@ body {
 
 
 .container {
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
@@ -1566,6 +1567,71 @@ article span.absolute {
 .bg-amber-100 {
     background: rgba(245, 158, 11, 0.15) !important;
     color: #b45309 !important;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* HERO */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  /* BOTONES */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  /* IMAGEN */
+  .hero-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* STATS */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 
