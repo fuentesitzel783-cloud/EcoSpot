@@ -15,4 +15,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN composer install
 
-CMD php artisan serve --host=0.0.0.0 --port=10000
+CMD php artisan config:clear && \
+    php artisan route:clear && \
+    php artisan cache:clear && \
+    php artisan view:clear && \
+    php artisan serve --host=0.0.0.0 --port=10000
