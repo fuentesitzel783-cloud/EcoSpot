@@ -16,13 +16,8 @@ WORKDIR /var/www
 
 COPY . .
 
-# instalar dependencias laravel y limpiar cache
-RUN composer install --no-dev --optimize-autoloader \
-    && php artisan config:clear \
-    && php artisan cache:clear \
-    && php artisan config:cache \
-    && php artisan route:clear \
-    && php artisan view:clear
+RUN composer install --no-dev --optimize-autoloader
 
-# servidor http para render
-CMD php -S 0.0.0.0:$PORT -t public
+CMD php artisan config:clear && \
+    php artisan cache:clear && \
+    php -S 0.0.0.0:$PORT -t public
