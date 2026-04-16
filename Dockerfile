@@ -1,18 +1,17 @@
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    unzip \
+    git \
+    curl
+
+RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql pgsql
+
+WORKDIR /var/www
 
 COPY . .
 
-RUN apt-get update && apt-get install -y \
-    unzip \
-    git \
-    curl \
-    libzip-dev \
-    && docker-php-ext-install zip pdo pdo_mysql
+RUN composer install --no-dev --optimize-autoloader
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-RUN composer install
-
-CMD php artisan serve --host=0.0.0.0 --port=10000
+CMD ["php-fpm"]
