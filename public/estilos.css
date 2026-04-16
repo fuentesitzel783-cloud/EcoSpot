@@ -355,7 +355,19 @@ body {
 .stat-label {
     color: var(--color-cyan-100);
 }
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.hero-image img {
+    width: 100%;
+    max-width: 450px;  /* controla el tamaño */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
 
 
 
