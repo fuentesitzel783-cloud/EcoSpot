@@ -4,9 +4,14 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
     git \
-    curl
+    curl \
+    libzip-dev
 
 RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql pgsql
+
+# instalar composer
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
 
 WORKDIR /var/www
 
